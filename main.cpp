@@ -104,9 +104,9 @@ void sendArp(pcap_t* pcap, const std::string& myMac, const std::string& targetIp
     packet.arp_.pro_ = htons(EthHdr::Ip4);
     packet.arp_.hln_ = Mac::Size;
     packet.arp_.pln_ = Ip::Size;
-    packet.arp_.op_ = htons(ArpHdr::Reply); // 핵심: Reply로 변경!
+    packet.arp_.op_ = htons(ArpHdr::Reply);
     packet.arp_.smac_ = Mac(myMac);
-    packet.arp_.sip_ = htonl(Ip(targetIp)); // 내가 target인 척
+    packet.arp_.sip_ = htonl(Ip(targetIp));
     packet.arp_.tmac_ = senderMac;
     packet.arp_.tip_ = htonl(Ip(senderIp));
 
